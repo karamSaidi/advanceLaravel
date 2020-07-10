@@ -29,3 +29,20 @@ Route::group(['prefix' => 'pusher', 'namespace' => 'Advance'], function () {
 
 });
 ######################################### end pusher ######################################
+
+######################################### start offer ######################################
+// https://www.hyperpay.com/
+Route::group(['prefix' => 'offers', 'middleware' => 'auth', 'namespace' => 'Advance'], function () {
+
+    Route::get('/', 'OfferController@index')->name('offers');
+    Route::get('/create', 'OfferController@create')->name('offer.create');
+    Route::post('/store', 'OfferController@store')->name('offer.store');
+    Route::get('/details/{id}', 'OfferController@details')->name('offers.details');
+    Route::get('/orders/{offer_id}', 'OfferController@orders')->name('offers.orders');
+
+    ################################ start CheckOut ####################
+    Route::get('/prepare_cheack_out', 'PaymentController@prepareCheckOut')->name('offers.cheackOut');
+    ################################ end CheckOut ####################
+
+});
+######################################### end offer ######################################
