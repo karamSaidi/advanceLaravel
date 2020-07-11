@@ -58,7 +58,6 @@ class OfferController extends Controller
             $offer = Offer::find($id);
             // return $offer->orders;
 
-            return view($this->view  . 'details')->with('offer', $offer)->with('success', 'goooooood');
             if(request()->has('id') && request()->has('resourcePath')){
                 $payment_status =  $this->checkPaymentStatus(request('id'));
                 if(isset($payment_status['id'])){
@@ -66,7 +65,8 @@ class OfferController extends Controller
                         'offer_id'              => $offer->id,
                         'transaction_id'        => $payment_status['id'],
                         'transaction_info'      => json_encode($payment_status),
-                    ]);
+                        ]);
+                    return view($this->view  . 'details')->with('offer', $offer)->with('success', 'Payment Success');
                 }
                 return view($this->view  . 'details', compact('offer'))->with('error', 'Payment fail');
             }

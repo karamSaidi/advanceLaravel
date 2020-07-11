@@ -35,6 +35,10 @@ class Offer extends Model
     {
         return $this->hasMany('App\Model\Order', 'offer_id', 'id');
     }
+    public function winners()
+    {
+        return $this->hasMany('App\Model\Winner', 'offer_id', 'id');
+    }
     ########################### end relations ##############################
 
 

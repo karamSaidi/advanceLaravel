@@ -42,6 +42,7 @@ class User extends Authenticatable
         return asset('image/' . $this->avatar);
     }
 
+    ########################### start relations ##############################
     public function posts()
     {
         return $this->hasMany('App\Model\Post', 'user_id', 'id');
@@ -54,6 +55,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Notification', 'user_id', 'id');
     }
+    public function winners()
+    {
+        return $this->hasMany('App\Model\Winner', 'user_id', 'id');
+    }
+    ########################### end relations ##############################
 
 
 }

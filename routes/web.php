@@ -44,5 +44,19 @@ Route::group(['prefix' => 'offers', 'middleware' => 'auth', 'namespace' => 'Adva
     Route::get('/prepare_cheack_out', 'PaymentController@prepareCheckOut')->name('offers.cheackOut');
     ################################ end CheckOut ####################
 
+
+    ################################ start sending mail in background ####################
+    Route::get('/send-mail-background', 'SendingMainBackgroundController@sendingMail')->name('mail.background');
+    ################################ end sending mail in background ####################
+
+    ################################ start 10000 winner background ####################
+    Route::get('/select-winner', 'WinnerController@getform')->name('winner-form');
+    Route::post('/save-winner', 'WinnerController@saveWinner')->name('winner.save');
+    ################################ end 10000 winner background ####################
+
+
+
+
+
 });
 ######################################### end offer ######################################

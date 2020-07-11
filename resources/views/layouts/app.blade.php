@@ -34,8 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li><a class="nav-link" href="{{ route('pusher') }}"> Puser realtime</a></li>
                         <li><a class="nav-link" href="{{ route('offers') }}"> Payment</a></li>
+                        <li><a class="nav-link" href="{{ route('mail.background') }}"> Send mail in backgournd</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
